@@ -14,13 +14,15 @@
                 <img src="logo.png" alt="logo"/>
             </div>
         </header>
-
+        <select>
+            <option value="All">All</option>
+            <option value="Rock">Rock</option>
+            <option value="Pop">Pop</option>
+            <option value="Jazz">Jazz</option>
+            <option value="Metal">Metal</option>
+        </select>
         <div class="cds-container container"></div>
-
         <script id="entry-template">
-            <div>
-
-            </div>
             <div class="cd {{genre}}">
                 <img src="{{poster}}" alt="poster">
                 <h3>{{ title }}</h3>
@@ -28,8 +30,6 @@
                 <span class="year">{{ year }}</span>
             </div>
         </script>
-        
-
         <script src="main.js" charset="utf-8"></script>
     </body>
 </html>

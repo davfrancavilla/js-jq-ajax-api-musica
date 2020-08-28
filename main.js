@@ -1,13 +1,29 @@
 $(document).ready(function() {
 	var source = $("#entry-template").html();
 	var template = Handlebars.compile(source);
+	var select = $("select");
+
+	select.change(function (){
+		var selectedGenre = select.find(":selected").val();
+		if (selectedGenre == "All"){
+			$(".cd").show();
+			return 0;
+		}
+		$(".cd").each(function(){
+			if ($(this).hasClass(selectedGenre)){
+				$(this).show();
+			} else {
+				$(this).hide();
+			}
+		});
+	})
+	
 	$.ajax(
 		{
 			url: "https://flynn.boolean.careers/exercises/api/array/music",
 			method : "GET",
 			success: function (data) {
 				var cds = data.response;
-				console.log(cds);
 				for (var i=0; i<cds.length; i++){
 					var cd = {
 						"poster" : cds[i].poster,
