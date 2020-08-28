@@ -1,8 +1,11 @@
 $(document).ready(function() {
+	// creo il template per i cd con handlebars
 	var source = $("#entry-template").html();
 	var template = Handlebars.compile(source);
+
 	var select = $("select");
 
+	// funzione che mostra soltanto i cd che appartengono alla categoria selezionata nel select
 	select.change(function (){
 		var selectedGenre = select.find(":selected").val();
 		if (selectedGenre == "All"){
@@ -18,6 +21,7 @@ $(document).ready(function() {
 		});
 	})
 	
+	// creo tutti i cd con i dati restituiti dall'API
 	$.ajax(
 		{
 			url: "https://flynn.boolean.careers/exercises/api/array/music",
